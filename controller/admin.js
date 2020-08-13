@@ -5,6 +5,7 @@ var userModel = require.main.require('./models/user-models');
 
 router.get('/',function(req,res){
 
+  
   if(req.session.username== null){
     res.redirect('/login');
   }
@@ -18,17 +19,21 @@ router.get('/',function(req,res){
 });
 
 router.post('/',function(req,res){
+  
   if(req.body.choice=="AddEmployee"){
-    res.redirect('/admin/AddEmployee');
+    res.redirect('/addEmployee');
   }
   else if(req.body.choice=="AllEmployeeList"){
-    res.redirect('/admin/AllEmployeeList');
+    res.redirect('/allEmployeeList');
   }
   else if(req.body.choice=="Logout"){
     req.session.username=null;
     res.redirect('/login');
   }
+
 });
+
+
 
 
 
