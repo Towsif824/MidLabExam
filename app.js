@@ -4,6 +4,7 @@ var bodyParser 	= require('body-parser');
 var login 		= require('./controller/login');
 var logout 		= require('./controller/logout');
 var admin 		= require('./controller/admin');
+var employee = require('./controller/employee');
 var app 		= express();
 
 //config
@@ -16,6 +17,7 @@ app.use(exSession({secret: 'my secret value', saveUninitialized: true, resave: f
 
 app.use('/login', login);
 app.use('/admin', admin);
+app.use('/employee', employee);
 app.use('/logout', logout);
 
 

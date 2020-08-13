@@ -20,7 +20,7 @@ router.post('/',function(req,res){
         res.redirect('/admin');
         console.log(results);
       }
-      else if (results[0].type=="employee"){
+      else{
         res.redirect('/employee');
       }
     }
