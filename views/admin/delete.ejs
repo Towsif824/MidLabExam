@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Delete Page</title>
+</head>
+<body>
+  
+
+    <form method="post" enctype="multipart/form-data">
+
+      <fieldset>
+        <legend>SignUp</legend>
+        <table>
+          <tr>
+            <td>Name:</td>
+            <td><%= user.name %></td>
+          </tr>
+          <tr>
+            <td>User Name</td>
+            <td><%= user.username %></td>
+          </tr>
+          <tr>
+            <td>Password</td>
+            <td><%= user.password %></td>
+          </tr>
+          <tr>
+            <td>Phone:</td>
+            <td><%= user.phone %></td>
+          </tr>
+          <tr>
+            <td>Gender:</td>
+            <td><%= user.gender %></td>
+          </tr>
+          <tr>
+            <td><label><b>Designation:</b></label></td>
+            <td><%= user.designation %></td>
+          </tr>
+          <tr>
+            <td>Type</td>
+            <td><%= user.type %></td>
+          <tr>
+            <td><h3>Are you sure? This can't be undone!</h3><br></td>
+            <td>
+              <input type="hidden" name="id" value="<%= user.id %>">
+              <input type="submit" name="submit" value = "Delete"></td>
+          </tr>
+          </tr>
+        </table>
+      </fieldset>
+    </form>
+    <a href="/admin/AllEmpList">EmpList</a> | <a href="/logout">Logout</a>
+    <br>
+</body>
+</html>

@@ -83,6 +83,28 @@ module.exports ={
     });
   },
 
+   update: function(user,callback){
+    var sql = "update users set name ='"+user.name+"' ,username='"+user.username+"', password='"+user.password+"', phone='"+user.phone+"' ,designation='"+user.designation+"'  where id='"+user.id+"'";
+    db.execute(sql, function(status){
+      if(status){
+        callback(true);
+      }else{
+        callback(false);
+      }
+    });
+  },
+
+   delete: function(id, callback){
+		var sql = "delete from users where id="+id;
+		db.execute(sql, function(status){
+			if(status){
+				callback(true);
+			}else{
+				callback(false);
+			}
+		});
+	},
+
 
 
 }

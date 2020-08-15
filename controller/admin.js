@@ -91,13 +91,22 @@ router.post('/addEmployee',function(req,res){
   }
 });
 
+router.get('/update/:id', function(req, res){
+
+  userModel.getById(req.params.id, function(result){
+    res.render('admin/update',{user : result});
+  });
+});
+
 router.post('/update/:id', function(req, res){
 
   var user = {
+
+    name: req.body.name,
     username: req.body.username,
     password: req.body.password,
     phone: req.body.phone,
-    designation:req.body.designation,
+    designation :req.body.designation,
     id: req.params.id
   };
 
@@ -107,6 +116,24 @@ router.post('/update/:id', function(req, res){
 
     }else{
       res.redirect('/admin/update/'+req.params.id);
+    }
+  });
+});
+router.get('/delete/:id', function(req, res){
+
+  userModel.getById(req.params.id, function(result){
+    res.render('admin/delete', {user: result});
+  });
+
+});
+
+router.post('/delete/:id', function(req, res){
+
+  userModel.delete(req.params.id, function(status){
+    if(status){
+      res.redirect('/admin/AllEmpList');
+    }else{
+      res.redirect('/admin/delete');
     }
   });
 });

@@ -47,6 +47,7 @@ router.get('/updateProfile', function(req, res){
 router.post('/updateProfile/:id', function(req, res){
 
   var user = {
+  	
   	name 			: req.body.name,
   	username 		: req.body.username,
     password     	: req.body.password,
