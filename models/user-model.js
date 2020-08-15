@@ -49,6 +49,17 @@ module.exports ={
 		});
 	},
 
+	getSearch : function(search,type, callback){
+		var sql = "select * from users where (id='"+search+"' or name='"+search+"' or username='"+search+"') and type='"+type+"'";
+		db.getResults(sql, function(results){
+			if(results.length > 0 ) {
+				callback(results);
+			}else{
+				callback([]);
+			}
+		});
+	},
+
 	insert: function(user, callback){
 		var sql = "insert into users values('', '"+user.name+"', '"+user.username+"', '"+user.password+"', '"+user.phone+"', '"+user.gender+"', '"+user.designation+"', '"+user.type+"')";
 		console.log(sql);
@@ -61,16 +72,6 @@ module.exports ={
 		});
 	},
 
-	getAll:function(callback){
-		var sql = "select * from users";
-		db.getResults(sql, function(results){
-			if(results.length > 0){
-				callback(results);
-			}else{
-				callback([]);
-			}
-		});
-	},
 
 	updateEmployee: function(user,callback){
     var sql = "update users set name='"+user.name+"', username='"+user.username+"', password='"+user.password+"', phone='"+user.phone+"' ,  where id='"+user.id+"'";

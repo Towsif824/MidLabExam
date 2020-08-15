@@ -47,11 +47,12 @@ router.post('/AllEmpList', function(req, res){
     res.redirect('/admin/AllEmpList');
   }
   else{
-        userModel.getById(search,"employee", function(results){
+        userModel.getSearch(search,"employee", function(results){
           if(results.length > 0){
                res.render('admin/search',{userList: results});
             }else{
                console.log('this employee does not exist!');
+                res.send(500,'No employee of this name exist');
             }
       });
     }

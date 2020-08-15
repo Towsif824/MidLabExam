@@ -17,7 +17,7 @@ router.get('/',function(req,res){
 
 router.post('/',function(req,res){
 	if (req.body.choice == "myProfile"){
-		res.redirect('/employee/myProfile');
+		res.redirect('/employee/myProfile/');
 	}else if(req.body.choice =="updateProfile"){
 		res.redirect('/employee/updateProfile/');
 	}	
@@ -30,7 +30,7 @@ router.get('/myProfile',function(req,res){
         if(results.length > 0){
              res.render('employee/myProfile',{userlist: results[0]});
           }else{
-             console.log('Search not found');
+             res.render('employee');
           }
       });
 });
@@ -47,7 +47,6 @@ router.get('/updateProfile', function(req, res){
 router.post('/updateProfile/:id', function(req, res){
 
   var user = {
-  	
   	name 			: req.body.name,
   	username 		: req.body.username,
     password     	: req.body.password,
@@ -59,9 +58,9 @@ router.post('/updateProfile/:id', function(req, res){
 
 	userModel.updateEmployee(user, function(status){
 		if(status){
-			res.redirect('/home');
+			res.redirect('/employee');
 		}else{
-			res.redirect('/employee/updateEmployee/'+req.params.id);
+			res.redirect('/employee/updateProfile/'+req.params.id);
 		}
 	});
 });
