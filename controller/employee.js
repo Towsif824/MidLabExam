@@ -35,4 +35,33 @@ router.get('/myProfile',function(req,res){
       });
 });
 
+
+router.get('/updateProfile/:id', function(req, res){
+
+	userModel.getUserByUsername(req.params.id, function(result){
+		res.render('employee/updateProfile', {user: result});
+	});
+
+});
+
+router.post('/updateProfile/:id', function(req, res){
+
+  var user = {
+  	name 			: req.body.name,
+  	username 		: req.body.username,
+    password     	: req.body.password,
+    phone     	 	: req.body.phone,
+    gender 			: req.body.gender,
+	id 				: req.params.id
+	
+	}
+
+	userModel.updateEmployee(user, function(status){
+		if(status){
+			res.redirect('/home');
+		}else{
+			res.redirect('/employee/updateEmployee/'+req.params.id);
+		}
+	});
+});
 module.exports = router;

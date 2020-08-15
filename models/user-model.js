@@ -49,6 +49,18 @@ module.exports ={
 		});
 	},
 
+	insert: function(user, callback){
+		var sql = "insert into users values('', '"+user.name+"', '"+user.username+"', '"+user.password+"', '"+user.phone+"', '"+user.gender+"', '"+user.designation+"', '"+user.type+"')";
+		console.log(sql);
+		db.execute(sql, function(status){
+			if(status){
+				callback(true);
+			}else{
+				callback(false);
+			}
+		});
+	},
+
 	getAll:function(callback){
 		var sql = "select * from users";
 		db.getResults(sql, function(results){
@@ -59,6 +71,17 @@ module.exports ={
 			}
 		});
 	},
+
+	updateEmployee: function(user,callback){
+    var sql = "update users set name='"+user.name+"', username='"+user.username+"', password='"+user.password+"', phone='"+user.phone+"' ,  where id='"+user.id+"'";
+    db.execute(sql, function(status){
+      if(status){
+        callback(true);
+      }else{
+        callback(false);
+      }
+    });
+  },
 
 
 

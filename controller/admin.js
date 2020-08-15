@@ -76,7 +76,7 @@ router.post('/addEmployee',function(req,res){
             address     : req.body.address,
             gender      : req.body.gender,
             designation : req.body.designation,
-            type        : "employee"
+            type        : req.body.type
           }
 
           userModel.insert(user, function(status){
