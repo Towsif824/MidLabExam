@@ -11,42 +11,18 @@
 
 </head>
 <body>
-	<center>
-
-					<h1>Welcome Home! <%= userlist.name %></h1>
-					<h2>My Profile</h2>
-
-</center>
-	<fieldset>
+	<h1 align="center">Welcome Home! <%= userlist.name %></h1>
+	<form method="post">
+		<input type="submit" name="choice" value="AllEmpList">
+		<input type="submit" name="choice" value="AddEmployee">
+	</form>
+	<fieldset block="in">
 		<table class="center">
 			<tr>
 				<td>ID:</td><td><%= userlist.id %></td>
 			</tr>
 			<tr>
 				<td>Name:</td><td><%= userlist.name %></td>
-			</tr>
-			<tr>
-				<td>User Name:</td><td><%= userlist.username %></td>
-			</tr>
-			<tr>
-				<td>Password:</td><td><%= userlist.password %></td>
-			</tr>
-			
-			<tr>
-				<td>Phone:</td><td><%= userlist.phone %><td>
-			</tr>
-			<tr>
-				<td>Gender:</td><td><%= userlist.gender %></td>
-			</tr>
-			<tr>
-				<td>Designation:</td><td><%= userlist.designation %><td>
-			</tr>
-			<tr>
-				<td>type:</td><td><%= userlist.type %></td>
-			</tr>
-			<tr>
-				
-			</tr>
 		</table>
 	</fieldset>
 </body>

@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home page</title>
-	<style>
-	table.center {
-				margin-left: auto;
-				margin-right: auto;
-			}
-	</style>
-
+    <title>Employee</title>
 </head>
 <body>
-	<center>
-
-					<h1>Welcome Home! <%= userlist.name %></h1>
-					<h2>My Profile</h2>
-
-</center>
+    <form method="post">
+    	<h2 align="center">Welcome To your account!</h2>
+        <fieldset>
+            <legend>EmpInfo</legend>
+            <table>
+              <tr>
+                <td><input type="submit" name="choice" value="myProfile"></td>
+              </tr>
+              <tr>
+                <td><input type="submit" name="choice" value="updateProfile"></td>
+              </tr>
+              <tr>
+              </tr>
+            </table>
+            <h3><a href="/employee">Back</a><td>|</td>
+            	<td> <a href="/logout">Logout</a></td></h3>
+        </fieldset>
+    </form>
 </body>
-</html>

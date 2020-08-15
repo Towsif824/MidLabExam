@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Employee</title>
+
+</head>
+<body>
+	<form name="searchForm" onsubmit="return validateForm()" method ="post" required>
+	<h1>Employees List </h1>
+	
+	<table>
+		<tr>
+			<td><input type="text" name="search" ></td>
+			<td><input type="submit" name="choice" value="Search"></td>
+		</tr>
+	</table>
+	<table border="1">
+		<tr>
+			<th>ID</th>
+			<th>NAME</th>
+			<th>PHONE</th>
+			<th>GENDER</th>
+			<th>Designation</th>
+			<th>Operations</th>
+		</tr>
+
+		<% for(var i=0; i < userList.length; i++){ %>
+		<tr>
+			<td><%= userList[i].id %></td>
+			<td><%= userList[i].name %></td>
+            <td><%= userList[i].phone %></td>
+			<td><%= userList[i].gender %></td>
+			<td><%= userList[i].designation %></td>
+			<td><a href="/admin/update/<%= userList[i].id %>">EDIT</a>|<a href="/admin/delete/<%= userList[i].id %>"> DELETE </a></td>
+		</tr>
+		<% } %>
+    <tr>
+
+    </tr>
+	</table>
+  <h3><a href="/admin">Back</a>|<a href="/logout">Logout</a></h3>
+ </form>
+</body>
+</html>

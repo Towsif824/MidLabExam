@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Profile</title>
+</head>
+<body>
+	<h1 align="center"><%= userlist.name %> Profile Info!</h1>
+	<fieldset>
+		<table class="center">
+			<tr>
+				<td>ID:</td><td><%= userlist.id %></td>
+			</tr>
+			<tr>
+				<td>Name:</td><td><%= userlist.name %></td>
+			</tr>
+			<tr><td>User Name:</td><td><%=userlist.username %></td></tr>
+				<tr><td>Gender:</td><td><%= userlist.gender %></td></tr>
+	 			<tr><td>Phone:</td> <td><%= userlist.phone %></td></tr>
+	 			<tr><td>Designation:</td><td> <%= userlist.designation %></td></tr>
+			</tr>
+		</table>
+	</fieldset>
+	<h3><td><a href="/employee">Back</a></td><td>|</td><td> <a href="/logout">Logout</a></td></h3>
+
+
+</body>
+</html>
