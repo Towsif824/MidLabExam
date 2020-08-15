@@ -74,7 +74,7 @@ module.exports ={
 
 
 	updateEmployee: function(user,callback){
-    var sql = "update users set name='"+user.name+"', username='"+user.username+"', password='"+user.password+"', phone='"+user.phone+"' ,  where id='"+user.id+"'";
+    var sql = "update users set name='"+user.name+"', username='"+user.username+"', password='"+user.password+"', phone='"+user.phone+"'  where id='"+user.id+"'";
     db.execute(sql, function(status){
       if(status){
         callback(true);

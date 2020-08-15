@@ -19,7 +19,15 @@ router.post('/',function(req,res){
 	if (req.body.choice == "myProfile"){
 		res.redirect('/employee/myProfile/');
 	}else if(req.body.choice =="updateProfile"){
-		res.redirect('/employee/updateProfile/');
+		userModel.getUserByUsername(req.session.username, function(results){
+        if(results.length > 0){
+           
+             res.redirect('/employee/updateProfile/'+results[0].id);
+          }else{
+             res.redirect('/employee');
+          }
+      });
+		
 	}	
 	
 });
@@ -36,7 +44,7 @@ router.get('/myProfile',function(req,res){
 });
 
 
-router.get('/updateProfile', function(req, res){
+router.get('/updateProfile/:id', function(req, res){
 
 	userModel.getUserByUsername(req.session.username, function(result){
 		res.render('employee/updateProfile', {user: result[0]});
@@ -51,7 +59,7 @@ router.post('/updateProfile/:id', function(req, res){
   	username 		: req.body.username,
     password     	: req.body.password,
     phone     	 	: req.body.phone,
-    gender 			: req.body.gender,
+
 	id 				: req.params.id
 	
 	}
