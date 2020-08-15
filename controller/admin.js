@@ -21,10 +21,10 @@ router.get('/',function(req,res){
 router.post('/',function(req,res){
   
   if(req.body.choice=="addEmployee"){
-    res.redirect('addEmployee');
+    res.redirect('/admin/addEmployee');
   }
   else if(req.body.choice=="AllEmpList"){
-    res.redirect('admin/AllEmpList');
+    res.redirect('/admin/AllEmpList');
   }
   else if(req.body.choice=="Logout"){
     req.session.username=null;
@@ -89,6 +89,26 @@ router.post('/addEmployee',function(req,res){
   }else{
     res.redirect('/logout');
   }
+});
+
+router.post('/update/:id', function(req, res){
+
+  var user = {
+    username: req.body.username,
+    password: req.body.password,
+    phone: req.body.phone,
+    designation:req.body.designation,
+    id: req.params.id
+  };
+
+  userModel.update(user, function(status){
+    if(status){
+      res.redirect('/admin/AllEmpList');
+
+    }else{
+      res.redirect('/admin/update/'+req.params.id);
+    }
+  });
 });
 
 

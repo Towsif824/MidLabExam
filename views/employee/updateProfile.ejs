@@ -26,7 +26,7 @@
           </tr>
           <tr>
             <td> User Name </td>
-            <td><input type="text" value="<%= user.name %>" name="username"></td>
+            <td><input type="text" value="<%= user.username %>" name="username"></td>
           </tr>
           <tr>
             <td>Password</td>
@@ -37,14 +37,14 @@
             <td>Phone no</td>
             <td><input type="text" value="<%= user.phone %>" required="required" name="phone"  id="phone"></td>
           </tr>
+          <tr>
+            <td><button type="submit" name="choice" value="Update">Update</button></td>
+          </tr>
         </table>
     </fieldset>
   </form>
-  <table class="center">
-      <tr>
-        <td><a href="/employee">Back</a>|
-      	<a href="/logout">Logout</a></td>
-      </tr>
-  </table>
+
+        <a href="/employee">Back</a>|<a href="/logout">Logout</a>
+
 </body>
 </html>

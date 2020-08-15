@@ -19,7 +19,7 @@ router.post('/',function(req,res){
 	if (req.body.choice == "myProfile"){
 		res.redirect('/employee/myProfile');
 	}else if(req.body.choice =="updateProfile"){
-		res.redirect('/employee/updateProfile');
+		res.redirect('/employee/updateProfile/');
 	}	
 	
 });
@@ -36,10 +36,10 @@ router.get('/myProfile',function(req,res){
 });
 
 
-router.get('/updateProfile/:id', function(req, res){
+router.get('/updateProfile', function(req, res){
 
-	userModel.getUserByUsername(req.params.id, function(result){
-		res.render('employee/updateProfile', {user: result});
+	userModel.getUserByUsername(req.session.username, function(result){
+		res.render('employee/updateProfile', {user: result[0]});
 	});
 
 });
